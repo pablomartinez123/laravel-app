@@ -23,7 +23,15 @@ use OpenApi\Annotations as OA;
  *     @OA\License(
  *         name="Apache 2.0",
  *         url="https://www.apache.org/licenses/LICENSE-2.0.html"
- *     )
+ *     ),
+ * )
+ * @OA\SecurityScheme(
+ *      securityScheme="bearerAuth",
+ *      in="header",
+ *      name="Authorization",
+ *      type="http",
+ *      scheme="Bearer",
+ *      bearerFormat="JWT",
  * )
  */
 class Controller extends BaseController

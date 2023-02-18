@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Models\Customer;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
@@ -14,6 +13,7 @@ class CustomerController extends Controller
 {
     /**
      * @OA\Get(
+     *     security={{"bearerAuth":{}}},
      *     path="/api/customer",
      *     @OA\Response(response="200", description="An example endpoint")
      * )
@@ -25,6 +25,7 @@ class CustomerController extends Controller
 
     /**
      * @OA\Post(
+     *     security={{"bearerAuth":{}}},
      *     path="/api/customer",
      *     @OA\Response(response="200", description="An example endpoint"),
      *     @OA\RequestBody(
@@ -51,6 +52,7 @@ class CustomerController extends Controller
 
     /**
      * @OA\Get(
+     *     security={{"bearerAuth":{}}},
      *     path="/api/customer/{customer_id}",
      *     @OA\Parameter(
      *         name="customer_id",
@@ -72,6 +74,7 @@ class CustomerController extends Controller
 
     /**
      * @OA\Put(
+     *     security={{"bearerAuth":{}}},
      *     path="/api/customer/{customer_id}",
      *     @OA\Parameter(
      *         name="customer_id",
@@ -106,6 +109,7 @@ class CustomerController extends Controller
 
     /**
      * @OA\Delete(
+     *     security={{"bearerAuth":{}}},
      *     path="/api/customer/{customer_id}",
      *     @OA\Parameter(
      *         name="customer_id",

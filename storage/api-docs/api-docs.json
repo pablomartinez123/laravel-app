@@ -23,7 +23,12 @@
                     "200": {
                         "description": "An example endpoint"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "operationId": "e788a12c4fbd7937feab964d2e133089",
@@ -128,6 +133,15 @@
                     }
                 },
                 "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "Bearer"
             }
         }
     }
