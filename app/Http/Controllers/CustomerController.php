@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Models\Customer;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use OpenApi\Annotations as OA;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 class CustomerController extends Controller
 {
@@ -18,17 +20,26 @@ class CustomerController extends Controller
      */
     public function index(): JsonResponse
     {
-        return response()->json(['customer' => 'index']);
+        return response()->json(Customer::all());
     }
 
     /**
      * @OA\Post(
      *     path="/api/customer",
-     *     @OA\Response(response="200", description="An example endpoint")
+     *     @OA\Response(response="200", description="An example endpoint"),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/Customer")
+     *     ),
      * )
      */
     public function store(StoreCustomerRequest $storeCustomerRequest): JsonResponse
     {
+        $customer = Customer::where('email', $storeCustomerRequest['email'])->get();
+        if (count($customer) > 0) {
+            throw new BadRequestException('Email already exist!');
+        }
+
         $customer = new Customer();
         $customer->setEmail($storeCustomerRequest['email']);
         $customer->setFirstName($storeCustomerRequest['first_name']);
@@ -75,9 +86,22 @@ class CustomerController extends Controller
      *     @OA\Response(response="200", description="An example endpoint")
      * )
      */
-    public function update(UpdateCustomerRequest $request, Customer $customer): JsonResponse
+    public function update(UpdateCustomerRequest $updateCustomerRequest, Customer $customer): JsonResponse
     {
-        return response()->json();
+        $customer = Customer::find($customer->id);
+
+        if ($updateCustomerRequest->get('email')) {
+            $customer->setEmail($updateCustomerRequest->get('email'));
+        }
+        if ($updateCustomerRequest->get('first_name')) {
+            $customer->setFirstName($updateCustomerRequest->get('first_name'));
+        }
+        if ($updateCustomerRequest->get('last_name')) {
+            $customer->setLastName($updateCustomerRequest->get('last_name'));
+        }
+        $customer->save();
+
+        return response()->json($customer);
     }
 
     /**

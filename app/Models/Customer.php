@@ -7,18 +7,30 @@ use Illuminate\Database\Eloquent\Model;
 use OpenApi\Annotations as OA;
 
 /**
+ * @author  Pablo Martinez <pablomartinez123@hotmail.com>
+ *
  * @OA\Schema(
- *     description="Customer model",
- *     title="Customer model",
+ *     title="Customer",
  *     required={"first_name", "last_name", "email"},
- *     @OA\Xml(
- *         name="Customer"
+ *     @OA\Property(
+ *       property="first_name",
+ *       type="string"
+ *     ),
+ *     @OA\Property(
+ *       property="last_name",
+ *       type="string"
+ *     ),
+ *     @OA\Property(
+ *       property="email",
+ *       type="string"
  *     )
  * )
  */
 class Customer extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['*'];
 
     protected $casts = [
         'first_name' => 'string',

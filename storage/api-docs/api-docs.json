@@ -4,7 +4,7 @@
         "title": "L5 OpenApi",
         "description": "L5 Swagger OpenApi description",
         "contact": {
-            "email": "pablosmartinez123@gmail.com"
+            "email": "pablomartinez123@hotmail.com"
         },
         "license": {
             "name": "Apache 2.0",
@@ -27,6 +27,16 @@
             },
             "post": {
                 "operationId": "e788a12c4fbd7937feab964d2e133089",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Customer"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "An example endpoint"
@@ -100,16 +110,24 @@
     "components": {
         "schemas": {
             "Customer": {
-                "title": "Customer model",
-                "description": "Customer model",
+                "title": "Customer",
                 "required": [
                     "first_name",
                     "last_name",
                     "email"
                 ],
-                "xml": {
-                    "name": "Customer"
-                }
+                "properties": {
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
             }
         }
     }

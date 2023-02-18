@@ -11,7 +11,7 @@ class UpdateCustomerRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateCustomerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'first_name'  => 'min:3|max:30',
+            'last_name' => 'min:3|max:30',
+            'email' => 'min:3|max:30'
         ];
     }
 }
