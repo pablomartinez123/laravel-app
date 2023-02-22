@@ -15,6 +15,7 @@ class CustomerController extends Controller
      * @OA\Get(
      *     security={{"bearerAuth":{}}},
      *     path="/api/customer",
+     *     tags={"Customer"},
      *     @OA\Response(response="200", description="An example endpoint")
      * )
      */
@@ -27,6 +28,7 @@ class CustomerController extends Controller
      * @OA\Post(
      *     security={{"bearerAuth":{}}},
      *     path="/api/customer",
+     *     tags={"Customer"},
      *     @OA\Response(response="200", description="An example endpoint"),
      *     @OA\RequestBody(
      *         required=true,
@@ -54,6 +56,7 @@ class CustomerController extends Controller
      * @OA\Get(
      *     security={{"bearerAuth":{}}},
      *     path="/api/customer/{customer_id}",
+     *     tags={"Customer"},
      *     @OA\Parameter(
      *         name="customer_id",
      *         in="path",
@@ -76,6 +79,7 @@ class CustomerController extends Controller
      * @OA\Put(
      *     security={{"bearerAuth":{}}},
      *     path="/api/customer/{customer_id}",
+     *     tags={"Customer"},
      *     @OA\Parameter(
      *         name="customer_id",
      *         in="path",
@@ -111,6 +115,7 @@ class CustomerController extends Controller
      * @OA\Delete(
      *     security={{"bearerAuth":{}}},
      *     path="/api/customer/{customer_id}",
+     *     tags={"Customer"},
      *     @OA\Parameter(
      *         name="customer_id",
      *         in="path",

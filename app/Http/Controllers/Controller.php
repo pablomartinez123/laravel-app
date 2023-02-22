@@ -15,15 +15,10 @@ use OpenApi\Annotations as OA;
  *              "url": "https://via.placeholder.com/190x90.png?text=L5-Swagger"
  *          }
  *      },
- *      title="L5 OpenApi",
- *      description="L5 Swagger OpenApi description",
+ *      title="My API",
  *      @OA\Contact(
  *          email="pablomartinez123@hotmail.com"
- *      ),
- *     @OA\License(
- *         name="Apache 2.0",
- *         url="https://www.apache.org/licenses/LICENSE-2.0.html"
- *     ),
+ *      )
  * )
  * @OA\SecurityScheme(
  *      securityScheme="bearerAuth",

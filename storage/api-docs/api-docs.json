@@ -1,14 +1,9 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "L5 OpenApi",
-        "description": "L5 Swagger OpenApi description",
+        "title": "My API",
         "contact": {
             "email": "pablomartinez123@hotmail.com"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
         },
         "version": "1.0.0",
         "x-logo": {
@@ -18,6 +13,9 @@
     "paths": {
         "/api/customer": {
             "get": {
+                "tags": [
+                    "Customer"
+                ],
                 "operationId": "36d5a836e102529237aae81bf088183a",
                 "responses": {
                     "200": {
@@ -31,6 +29,9 @@
                 ]
             },
             "post": {
+                "tags": [
+                    "Customer"
+                ],
                 "operationId": "e788a12c4fbd7937feab964d2e133089",
                 "requestBody": {
                     "required": true,
@@ -46,11 +47,19 @@
                     "200": {
                         "description": "An example endpoint"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/customer/{customer_id}": {
             "get": {
+                "tags": [
+                    "Customer"
+                ],
                 "operationId": "560bd1ac2edcdc21a73566f9ac141a7c",
                 "parameters": [
                     {
@@ -68,9 +77,17 @@
                     "200": {
                         "description": "An example endpoint"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "put": {
+                "tags": [
+                    "Customer"
+                ],
                 "operationId": "5fe5ee0c796b5d10e1f94ccc1c2ee76f",
                 "parameters": [
                     {
@@ -88,9 +105,17 @@
                     "200": {
                         "description": "An example endpoint"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
+                "tags": [
+                    "Customer"
+                ],
                 "operationId": "7900213a7179e0baf6cd15a8104ba570",
                 "parameters": [
                     {
@@ -108,7 +133,66 @@
                     "200": {
                         "description": "An example endpoint"
                     }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/tokens": {
+            "post": {
+                "tags": [
+                    "Tokens"
+                ],
+                "operationId": "13e74789c1453e13625ed5c1a0ec1bcc",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password",
+                                    "device_name"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "format": "string"
+                                    },
+                                    "password": {
+                                        "format": "string"
+                                    },
+                                    "device_name": {
+                                        "format": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
                 }
+            },
+            "delete": {
+                "tags": [
+                    "Tokens"
+                ],
+                "operationId": "5893672218de7ddd50a9353875d26e04",
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         }
     },
