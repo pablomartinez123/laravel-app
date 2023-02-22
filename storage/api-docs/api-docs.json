@@ -141,6 +141,136 @@
                 ]
             }
         },
+        "/api/payment-method": {
+            "get": {
+                "tags": [
+                    "Payment Method"
+                ],
+                "operationId": "fab55bad7b89ba71ec0d18c3bfbee413",
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Payment Method"
+                ],
+                "operationId": "e52b30d32703b0bd6cd25dab95dc20c0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PaymentMethod"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/payment-method/{payment_method_id}": {
+            "get": {
+                "tags": [
+                    "Payment Method"
+                ],
+                "operationId": "68843946c568ef4294d3becbc3a925a4",
+                "parameters": [
+                    {
+                        "name": "payment_method_id",
+                        "in": "path",
+                        "description": "ID of payment method to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Payment Method"
+                ],
+                "operationId": "9e1b2a7f4b1c82ed21e14622dff4209d",
+                "parameters": [
+                    {
+                        "name": "payment_method_id",
+                        "in": "path",
+                        "description": "ID of payment method to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Payment Method"
+                ],
+                "operationId": "17ee0c048fb0c297296ee4ad7ef4fa4f",
+                "parameters": [
+                    {
+                        "name": "payment_method_id",
+                        "in": "path",
+                        "description": "ID of payment method to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/tokens": {
             "post": {
                 "tags": [
