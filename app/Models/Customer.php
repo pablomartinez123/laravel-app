@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use OpenApi\Annotations as OA;
 
 /**
@@ -38,51 +39,49 @@ class Customer extends Model
         'email' => 'string',
     ];
 
-    /**
-     * @return string
-     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function getFirstName(): string
     {
         return $this->first_name;
     }
 
-    /**
-     * @param string $first_name
-     */
-    public function setFirstName(string $first_name): void
+    public function setFirstName(string $first_name): Customer
     {
         $this->first_name = $first_name;
+
+        return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getLastName(): string
     {
         return $this->last_name;
     }
 
-    /**
-     * @param string $last_name
-     */
-    public function setLastName(string $last_name): void
+    public function setLastName(string $last_name): Customer
     {
         $this->last_name = $last_name;
+
+        return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @param string $email
-     */
-    public function setEmail(string $email): void
+    public function setEmail(string $email): Customer
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function paymentMethods(): HasMany
+    {
+        return $this->hasMany(PaymentMethod::class);
     }
 }

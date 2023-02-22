@@ -217,6 +217,22 @@
                     }
                 },
                 "type": "object"
+            },
+            "PaymentMethod": {
+                "title": "Payment Method",
+                "required": [
+                    "customer_id",
+                    "name"
+                ],
+                "properties": {
+                    "customer_id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
             }
         },
         "securitySchemes": {

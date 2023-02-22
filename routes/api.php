@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('customer', CustomerController::class)->middleware('auth:sanctum');
+Route::apiResource('payment-method', PaymentMethodController::class)->middleware('auth:sanctum');
 
 Route::post('/tokens', [TokenController::class, 'store']);
 Route::delete('/tokens', [TokenController::class, 'destroy']);
