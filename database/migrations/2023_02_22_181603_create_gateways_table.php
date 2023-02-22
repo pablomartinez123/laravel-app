@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('gateways', function (Blueprint $table) {
             $table->id();
             $table->string('display_name');
-            $table->string('key_name')->unique();
+            $table->string('code')->unique();
             $table->string('description')->nullable();
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ class GatewaySeeder extends Seeder
     {
         DB::table('gateways')->insert([
             'display_name' => 'Stripe',
-            'key_name' => 'stripe',
+            'code' => 'stripe',
             'created_at' => now(),
             'updated_at' => now()
         ]);

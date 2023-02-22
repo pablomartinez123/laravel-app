@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Components\Gateways\GatewayService;
 use App\Http\Requests\StorePaymentMethodRequest;
 use App\Models\Customer;
 use App\Models\PaymentMethod;
@@ -36,8 +37,9 @@ class PaymentMethodController extends Controller
      *     ),
      * )
      */
-    public function store(StorePaymentMethodRequest $storePaymentMethodRequest): JsonResponse
+    public function store(StorePaymentMethodRequest $storePaymentMethodRequest, GatewayService $gatewayService): JsonResponse
     {
+        /* @var Customer $customer */
         $customer = Customer::findOrFail($storePaymentMethodRequest['customer_id']);
 
         $paymentMethod = new PaymentMethod();
@@ -45,6 +47,8 @@ class PaymentMethodController extends Controller
         $paymentMethod->setName($storePaymentMethodRequest['name']);
         $paymentMethod->setExternalId('asd');
         $paymentMethod->save();
+
+        $gatewayService->createCustomer($customer);
 
         return response()->json($paymentMethod);
     }
@@ -69,7 +73,7 @@ class PaymentMethodController extends Controller
      */
     public function show(int $paymentMethodId): JsonResponse
     {
-        return response()->json(PaymentMethod::findOrFail($paymentMethodId));
+        return response()->json(PaymentMethod::with('customer')->findOrFail($paymentMethodId));
     }
 
     /**
