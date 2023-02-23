@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Components\Gateways\GatewayService;
 use App\Http\Requests\StorePaymentMethodRequest;
+use App\Http\Requests\UpdatePaymentMethodRequest;
 use App\Models\Customer;
 use App\Models\PaymentMethod;
 use Illuminate\Http\JsonResponse;
@@ -94,7 +95,7 @@ class PaymentMethodController extends Controller
      *     @OA\Response(response="200", description="An example endpoint")
      * )
      */
-    public function update(Request $request, PaymentMethod $paymentMethod): JsonResponse
+    public function update(UpdatePaymentMethodRequest $updatePaymentMethodRequest, PaymentMethod $paymentMethod): JsonResponse
     {
         return response()->json();
     }

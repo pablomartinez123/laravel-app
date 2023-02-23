@@ -11,6 +11,266 @@
         }
     },
     "paths": {
+        "/api/account": {
+            "get": {
+                "tags": [
+                    "Account"
+                ],
+                "operationId": "9c3e3a19f5dee65a542defa8ca8dbb26",
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "operationId": "648f9a087a595875582d2780ccc5e4d4",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Account"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/account/{account_id}": {
+            "get": {
+                "tags": [
+                    "Account"
+                ],
+                "operationId": "b29c04e79c0de25c643193def231fbf1",
+                "parameters": [
+                    {
+                        "name": "account_id",
+                        "in": "path",
+                        "description": "ID of account to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Account"
+                ],
+                "operationId": "cf2a4072eab79b2d21eefdbe44bcbf7d",
+                "parameters": [
+                    {
+                        "name": "account_id",
+                        "in": "path",
+                        "description": "ID of account to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Account"
+                ],
+                "operationId": "9904b943e6ec37c678a3540d020cbfea",
+                "parameters": [
+                    {
+                        "name": "account_id",
+                        "in": "path",
+                        "description": "ID of account to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/account-user": {
+            "get": {
+                "tags": [
+                    "Account User"
+                ],
+                "operationId": "3b91e06634259479593ded4a01065721",
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Account User"
+                ],
+                "operationId": "f5d536aeae452f2e85fba0f895e77e63",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AccountUser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/account-user/{account_user_id}": {
+            "get": {
+                "tags": [
+                    "Account User"
+                ],
+                "operationId": "0cbacbd20767b4b8ea7f44e7f46fa2ec",
+                "parameters": [
+                    {
+                        "name": "account_user_id",
+                        "in": "path",
+                        "description": "ID of account user to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Account User"
+                ],
+                "operationId": "c2d52abce90a9d9c4c7cc3c53fa75229",
+                "parameters": [
+                    {
+                        "name": "account_user_id",
+                        "in": "path",
+                        "description": "ID of account user to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Account User"
+                ],
+                "operationId": "ad953949d2a425ab9493e5960d769c03",
+                "parameters": [
+                    {
+                        "name": "account_user_id",
+                        "in": "path",
+                        "description": "ID of account user to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/customer": {
             "get": {
                 "tags": [
@@ -101,6 +361,16 @@
                         }
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Customer"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "An example endpoint"
@@ -328,6 +598,34 @@
     },
     "components": {
         "schemas": {
+            "Account": {
+                "title": "Account",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "AccountUser": {
+                "title": "Account User",
+                "required": [
+                    "account_id",
+                    "user_id"
+                ],
+                "properties": {
+                    "account_id": {
+                        "type": "integer"
+                    },
+                    "user_id": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
             "Customer": {
                 "title": "Customer",
                 "required": [
@@ -359,6 +657,9 @@
                         "type": "integer"
                     },
                     "name": {
+                        "type": "string"
+                    },
+                    "external_id": {
                         "type": "string"
                     }
                 },

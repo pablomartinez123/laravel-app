@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AccountUserController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\TokenController;
@@ -21,6 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::apiResource('account', AccountController::class)->middleware('auth:sanctum');
+Route::apiResource('account-user', AccountUserController::class)->middleware('auth:sanctum');
 Route::apiResource('customer', CustomerController::class)->middleware('auth:sanctum');
 Route::apiResource('payment-method', PaymentMethodController::class)->middleware('auth:sanctum');
 

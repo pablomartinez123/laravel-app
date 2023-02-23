@@ -20,6 +20,10 @@ use OpenApi\Annotations as OA;
  *     @OA\Property(
  *       property="name",
  *       type="string"
+ *     ),
+ *     @OA\Property(
+ *       property="external_id",
+ *       type="string"
  *     )
  * )
  */
@@ -34,6 +38,11 @@ class PaymentMethod extends Model
         'name' => 'string',
         'external_id' => 'string',
     ];
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
     public function setCustomer(Customer $customer): PaymentMethod
     {

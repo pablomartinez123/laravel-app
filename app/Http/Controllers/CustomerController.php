@@ -90,7 +90,11 @@ class CustomerController extends Controller
      *             format="int64"
      *         )
      *     ),
-     *     @OA\Response(response="200", description="An example endpoint")
+     *     @OA\Response(response="200", description="An example endpoint"),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/Customer")
+     *     ),
      * )
      */
     public function update(UpdateCustomerRequest $updateCustomerRequest, Customer $customer): JsonResponse
