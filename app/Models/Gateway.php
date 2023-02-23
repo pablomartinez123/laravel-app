@@ -29,9 +29,9 @@ class Gateway extends Model
         return $this->display_name;
     }
 
-    public function setDisplayName(string $display_ame): Gateway
+    public function setDisplayName(string $display_name): Gateway
     {
-        $this->display_ame = $display_ame;
+        $this->display_name = $display_name;
 
         return $this;
     }
