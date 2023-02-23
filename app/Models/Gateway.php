@@ -4,7 +4,28 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use OpenApi\Annotations as OA;
 
+/**
+ * @author  Pablo Martinez <pablomartinez123@hotmail.com>
+ *
+ * @OA\Schema(
+ *     title="Gateway",
+ *     required={"display_name", "code", "email"},
+ *     @OA\Property(
+ *       property="display_name",
+ *       type="string"
+ *     ),
+ *     @OA\Property(
+ *       property="code",
+ *       type="string"
+ *     ),
+ *     @OA\Property(
+ *       property="description",
+ *       type="string"
+ *     )
+ * )
+ */
 class Gateway extends Model
 {
     use HasFactory;

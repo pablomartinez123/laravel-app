@@ -11,7 +11,7 @@ use OpenApi\Annotations as OA;
  * @author  Pablo Martinez <pablomartinez123@hotmail.com>
  *
  * @OA\Schema(
- *     title="Payment Method",
+ *     title="PaymentMethod",
  *     required={"customer_id", "name"},
  *     @OA\Property(
  *       property="customer_id",

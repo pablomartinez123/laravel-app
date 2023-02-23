@@ -141,6 +141,34 @@
                 ]
             }
         },
+        "/api/account-gateway": {
+            "post": {
+                "tags": [
+                    "Account gateway"
+                ],
+                "operationId": "31d25fe4a776f8efb6989f47d22c7b2e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AccountGateway"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/account-user": {
             "get": {
                 "tags": [
@@ -610,8 +638,27 @@
                 },
                 "type": "object"
             },
+            "AccountGateway": {
+                "title": "AccountGateway",
+                "required": [
+                    "account_id",
+                    "gateway_id"
+                ],
+                "properties": {
+                    "account_id": {
+                        "type": "integer"
+                    },
+                    "gateway_id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "AccountUser": {
-                "title": "Account User",
+                "title": "AccountUser",
                 "required": [
                     "account_id",
                     "user_id"
@@ -646,8 +693,51 @@
                 },
                 "type": "object"
             },
+            "Gateway": {
+                "title": "Gateway",
+                "required": [
+                    "display_name",
+                    "code",
+                    "email"
+                ],
+                "properties": {
+                    "display_name": {
+                        "type": "string"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "GatewayValue": {
+                "title": "GatewayValue",
+                "required": [
+                    "gateway_id",
+                    "code",
+                    "name"
+                ],
+                "properties": {
+                    "gateway_id": {
+                        "type": "integer"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "PaymentMethod": {
-                "title": "Payment Method",
+                "title": "PaymentMethod",
                 "required": [
                     "customer_id",
                     "name"

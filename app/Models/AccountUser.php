@@ -11,7 +11,7 @@ use OpenApi\Annotations as OA;
  * @author  Pablo Martinez <pablomartinez123@hotmail.com>
  *
  * @OA\Schema(
- *     title="Account User",
+ *     title="AccountUser",
  *     required={"account_id", "user_id"},
  *     @OA\Property(
  *       property="account_id",
