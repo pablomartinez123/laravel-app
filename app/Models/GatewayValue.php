@@ -33,4 +33,18 @@ use OpenApi\Annotations as OA;
 class GatewayValue extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['*'];
+
+    protected $casts = [
+        'gateway_id' => 'int',
+        'code' => 'string',
+        'name' => 'string',
+        'description' => 'string',
+    ];
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
 }

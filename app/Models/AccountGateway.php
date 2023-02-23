@@ -31,6 +31,19 @@ class AccountGateway extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['*'];
+
+    protected $casts = [
+        'account_id' => 'int',
+        'gateway_id' => 'int',
+        'name' => 'string'
+    ];
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function setAccount(Account $account): AccountGateway
     {
         $this->account_id = $account->getId();

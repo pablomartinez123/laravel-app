@@ -6,7 +6,9 @@ use App\Http\Requests\StoreAccountGatewayRequest;
 use App\Http\Requests\UpdateAccountGatewayRequest;
 use App\Models\Account;
 use App\Models\AccountGateway;
+use App\Models\AccountGatewayValue;
 use App\Models\Gateway;
+use App\Models\GatewayValue;
 use Illuminate\Http\JsonResponse;
 use OpenApi\Annotations as OA;
 
@@ -45,6 +47,16 @@ class AccountGatewayController extends Controller
         $accountGateway->setGateway($gateway);
         $accountGateway->setName($storeAccountGatewayRequest['name']);
         $accountGateway->save();
+
+        foreach ($storeAccountGatewayRequest['values'] as $key => $value) {
+            $gatewayValue = GatewayValue::where('code', $key)->first();
+
+            $accountGatewayValue = new AccountGatewayValue();
+            $accountGatewayValue->setValue($value);
+            $accountGatewayValue->setAccountGateway($accountGateway);
+            $accountGatewayValue->setGatewayValue($gatewayValue);
+            $accountGatewayValue->save();
+        }
 
         return response()->json($accountGateway);
     }
